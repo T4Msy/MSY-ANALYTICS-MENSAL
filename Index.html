@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>MSY - ANALYTICS | Monthly Insights</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    
+    <header>
+      <h1>MSY - ANALYTICS</h1>
+      <h2>Monthly Insights</h2>
+      <p class="subtitle">Sistema de performance mensal.</p>
+    </header>
+
+    <section class="panel">
+      <div class="field">
+        <label>Selecionar Mês</label>
+        <select id="mesSelecionado">
+          <option value="">-- Selecione --</option>
+          <option value="01">Janeiro</option>
+          <option value="02">Fevereiro</option>
+          <option value="03">Março</option>
+          <option value="04">Abril</option>
+          <option value="05">Maio</option>
+          <option value="06">Junho</option>
+          <option value="07">Julho</option>
+          <option value="08">Agosto</option>
+          <option value="09">Setembro</option>
+          <option value="10">Outubro</option>
+          <option value="11">Novembro</option>
+          <option value="12">Dezembro</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Data Início</label>
+        <input type="text" id="dataInicio" placeholder="DD/MM/AAAA" />
+      </div>
+
+      <div class="field">
+        <label>Data Fim</label>
+        <input type="text" id="dataFim" placeholder="DD/MM/AAAA" />
+      </div>
+
+      <div class="field">
+        <label>Arquivo do Chat (.txt)</label>
+        <input type="file" id="chatFile" accept=".txt" />
+      </div>
+
+      <button id="analisarBtn">Iniciar Análise</button>
+    </section>
+
+    <section id="filterSection" class="panel" style="display: none; margin-top: 20px;">
+      <div class="field" style="grid-column: 1 / -1;">
+        <label>Filtros de Membros:</label>
+        <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 15px;">
+          <input type="text" id="searchMembro" placeholder="Buscar membro..." style="max-width: 300px;">
+        </div>
+        <div id="tagsContainer" class="tags-container"></div>
+      </div>
+    </section>
+
+    <section class="results">
+      <h3>Resultado da Análise</h3>
+      <div id="resultadoHTML" class="resultado-box">
+        <p>Aguardando análise...</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Masayoshi Analytics System ©</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="app.js"></script>
+  <script>
+    flatpickr("#dataInicio", { dateFormat: "d/m/Y", locale: "pt" });
+    flatpickr("#dataFim", { dateFormat: "d/m/Y", locale: "pt" });
+  </script>
+</body>
+</html>
